@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Kivi — Styles</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: #dff3e1;
+      color: #111111;
+      min-height: 100vh;
+    }
+
+    button,
+    input,
+    textarea {
+      font-family: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* =========================
+       LAYOUT
+    ========================= */
+
+    .app {
+      display: flex;
+      min-height: 100vh;
+      background: #dff3e1;
+    }
+
+    /* =========================
+       SIDEBAR
+    ========================= */
+
+    .sidebar {
+      width: 235px;
+      min-height: 100vh;
+      background: #c5e8ca;
+      border-right: 1px solid #a8d8b0;
+      padding: 28px 18px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin: 0 12px 38px;
+      color: #111111;
+    }
+
+    .nav-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      color: #487054;
+      margin: 0 12px 12px;
+      font-weight: 700;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 13px;
+      margin-bottom: 4px;
+      border-radius: 10px;
+      color: #315a3b;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.2s ease;
+    }
+
+    .nav-item:hover {
+      background: #b5dfbc;
+      color: #111111;
+    }
+
+    .nav-item.active {
+      background: #1f6b3a;
+      color: white;
+      font-weight: 600;
+    }
+
+    .nav-icon {
+      width: 20px;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    .sidebar-bottom {
+      margin-top: auto;
+      padding: 15px 12px;
+      border-top: 1px solid #a8d8b0;
+      color: #487054;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    .main {
+      flex: 1;
+      padding: 42px 55px 70px;
+      max-width: 1450px;
+      margin: 0 auto;
+    }
+
+    .top-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .eyebrow {
+      color: #1f6b3a;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 38px;
+      line-height: 1.05;
+      letter-spacing: -1.8px;
+      margin-bottom: 10px;
+      color: #111111;
+    }
+
+    .subtitle {
+      color: #487054;
+      font-size: 15px;
+      max-width: 680px;
+      line-height: 1.6;
+    }
+
+    .create-btn {
+      border: none;
+      background: #111111;
+      color: white;
+      padding: 13px 19px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .create-btn:hover {
+      background: #1f6b3a;
+      transform: translateY(-1px);
+    }
+
+    /* =========================
+       BLACK DEMO
+    ========================= */
+
+    .demo {
+      background: #111111;
+      color: white;
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 35px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .demo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .demo-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .demo-key {
+      font-size: 11px;
+      color: #bdbdbd;
+      border: 1px solid #444444;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .demo-box {
+      background: #1b1b1b;
+      border: 1px solid #333333;
+      border-radius: 12px;
+      padding: 18px;
+      min-height: 135px;
+    }
+
+    .demo-box.output {
+      background: #dff3e1;
+      color: #111111;
+      border: none;
+    }
+
+    .demo-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      color: #888888;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .demo-box.output .demo-label {
+      color: #487054;
+    }
+
+    .demo-text {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .demo-text strong {
+      color: #75c985;
+    }
+
+    /* =========================
+       SECTION
+    ========================= */
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 17px;
+    }
+
+    .section-title h2 {
+      font-size: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title span {
+      font-size: 12px;
+      color: #487054;
+    }
+
+    /* =========================
+       VOICE CARDS
+    ========================= */
+
+    .voices {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+
+    .voice-card {
+      background: #c5e8ca;
+      border: 1px solid #a8d8b0;
+      border-radius: 14px;
+      padding: 20px;
+      min-height: 170px;
+      position: relative;
+      transition: 0.2s ease;
+    }
+
+    .voice-card:hover {
+      transform: translateY(-3px);
+      border-color: #6fb77d;
+      box-shadow: 0 8px 20px rgba(31, 107, 58, 0.1);
+    }
+
+    .voice-card.selected {
+      border: 2px solid #1f6b3a;
+    }
+
+    .voice-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #1f6b3a;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .voice-card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .voice-card p {
+      color: #487054;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .app-tags {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .app-tag {
+      background: #dff3e1;
+      color: #315a3b;
+      font-size: 10px;
+      padding: 5px 7px;
+      border-radius: 5px;
+      font-weight: 600;
+    }
+
+    .add-card {
+      background: transparent;
+      border: 2px dashed #8dc49a;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #487054;
+      cursor: pointer;
+    }
+
+    .add-card:hover {
+      background: #c5e8ca;
+      border-color: #1f6b3a;
+    }
+
+    .plus {
+      font-size: 30px;
+      margin-bottom: 8px;
+      color: #1f6b3a;
+    }
+
+    /* =========================
+       EDITOR
+    ========================= */
+
+    .editor {
+      background: #c5e8ca;
+      border: 1px solid #a8d8b0;
+      border-radius: 16px;
+      padding: 27px;
+      display: none;
+      margin-bottom: 30px;
+    }
+
+    .editor.show {
+      display: block;
+    }
+
+    .editor-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .editor-header h2 {
+      font-size: 20px;
+    }
+
+    .close-btn {
+      border: none;
+      background: transparent;
+      font-size: 22px;
+      color: #315a3b;
+      cursor: pointer;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 23px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 9px;
+      display: block;
+      color: #315a3b;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .style-name-input {
+      width: 100%;
+      border: 1px solid #8dc49a;
+      background: #dff3e1;
+      border-radius: 9px;
+      padding: 12px;
+      outline: none;
+      font-size: 14px;
+      color: #111111;
+    }
+
+    .style-name-input:focus {
+      border-color: #1f6b3a;
+      box-shadow: 0 0 0 3px rgba(31, 107, 58, 0.1);
+    }
+
+    /* =========================
+       APP SELECTOR
+    ========================= */
+
+    .app-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .app-option {
+      border: 1px solid #8dc49a;
+      background: #dff3e1;
+      color: #315a3b;
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 12px;
+      transition: 0.2s;
+    }
+
+    .app-option:hover {
+      border-color: #1f6b3a;
+    }
+
+    .app-option.selected {
+      background: #1f6b3a;
+      color: white;
+      border-color: #1f6b3a;
+    }
+
+    /* =========================
+       TONES
+    ========================= */
+
+    .tone-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .tone {
+      background: #dff3e1;
+      border: 1px solid #8dc49a;
+      border-radius: 9px;
+      padding: 13px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .tone:hover {
+      border-color: #1f6b3a;
+    }
+
+    .tone.selected {
+      border: 2px solid #1f6b3a;
+      background: #b5dfbc;
+    }
+
+    .tone-name {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .tone-desc {
+      font-size: 10px;
+      color: #487054;
+      line-height: 1.4;
+    }
+
+    /* =========================
+       TEXTAREA
+    ========================= */
+
+    textarea {
+      width: 100%;
+      min-height: 105px;
+      resize: vertical;
+      border: 1px solid #8dc49a;
+      background: #dff3e1;
+      border-radius: 9px;
+      padding: 13px;
+      font-size: 13px;
+      line-height: 1.5;
+      outline: none;
+      color: #111111;
+    }
+
+    textarea:focus {
+      border-color: #1f6b3a;
+      box-shadow: 0 0 0 3px rgba(31, 107, 58, 0.1);
+    }
+
+    .hint {
+      color: #487054;
+      font-size: 11px;
+      margin-top: 7px;
+    }
+
+    /* =========================
+       PREVIEW
+    ========================= */
+
+    .preview {
+      background: #111111;
+      border-radius: 12px;
+      padding: 20px;
+      color: white;
+    }
+
+    .preview-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #999999;
+      margin-bottom: 12px;
+    }
+
+    .preview-input {
+      color: #bdbdbd;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .preview-output {
+      background: #dff3e1;
+      color: #111111;
+      border-radius: 9px;
+      padding: 13px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .editor-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 9px;
+      margin-top: 25px;
+    }
+
+    .secondary-btn {
+      background: transparent;
+      border: 1px solid #8dc49a;
+      color: #315a3b;
+      padding: 11px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .secondary-btn:hover {
+      background: #dff3e1;
+    }
+
+    .save-btn {
+      background: #1f6b3a;
+      border: none;
+      color: white;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .save-btn:hover {
+      background: #15552d;
+    }
+
+    /* =========================
+       CONTEXT OVERRIDE
+    ========================= */
+
+    .context-box {
+      margin-top: 25px;
+      background: #dff3e1;
+      border: 1px solid #8dc49a;
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .context-title {
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .context-text {
+      color: #487054;
+      font-size: 12px;
+      line-height: 1.5;
+      margin-bottom: 13px;
+    }
+
+    .context-example {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .context-pill {
+      background: #c5e8ca;
+      border: 1px solid #8dc49a;
+      padding: 7px 10px;
+      border-radius: 7px;
+      font-size: 11px;
+      color: #315a3b;
+    }
+
+    .arrow {
+      color: #1f6b3a;
+      font-weight: 800;
+    }
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    .toast {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      background: #111111;
+      color: white;
+      padding: 13px 17px;
+      border-radius: 9px;
+      font-size: 13px;
+      opacity: 0;
+      transform: translateY(15px);
+      pointer-events: none;
+      transition: 0.3s ease;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 1100px) {
+      .voices {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .main {
+        padding: 35px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .sidebar {
+        width: 75px;
+        padding: 20px 10px;
+      }
+
+      .logo {
+        font-size: 20px;
+        text-align: center;
+        margin: 0 0 25px;
+      }
+
+      .nav-title,
+      .nav-text,
+      .sidebar-bottom {
+        display: none;
+      }
+
+      .nav-item {
+        justify-content: center;
+        padding: 12px;
+      }
+
+      .main {
+        padding: 25px 20px;
+      }
+
+      .demo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .voices {
+        grid-template-columns: 1fr;
+      }
+
+      .top-row {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      .tone-options {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- =========================
+         SIDEBAR
+    ========================= -->
+
+    <aside class="sidebar">
+
+      <div class="logo">kivi.</div>
+
+      <div class="nav-title">Workspace</div>
+
+      <div class="nav-item">
+        <div class="nav-icon">⌂</div>
+        <div class="nav-text">Home</div>
+      </div>
+
+      <div class="nav-item">
+        <div class="nav-icon">◷</div>
+        <div class="nav-text">History</div>
+      </div>
+
+      <div class="nav-item active">
+        <div class="nav-icon">✦</div>
+        <div class="nav-text">Styles</div>
+      </div>
+
+      <div class="nav-item">
+        <div class="nav-icon">⌕</div>
+        <div class="nav-text">Dictionary</div>
+      </div>
+
+      <div class="nav-item">
+        <div class="nav-icon">⌘</div>
+        <div class="nav-text">Shortcuts</div>
+      </div>
+
+      <div class="sidebar-bottom">
+        Kivi learns how you speak.<br />
+        Your styles make it sound like you.
+      </div>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
+    <main class="main">
+
+      <!-- HEADER -->
+
+      <div class="top-row">
+
+        <div>
+          <div class="eyebrow">Styles</div>
+
+          <h1>Make Kivi sound like you.</h1>
+
+          <p class="subtitle">
+            Styles tell Kivi how you want your words to sound.
+            Speak naturally. Kivi handles the tone, wording and formatting.
+          </p>
+        </div>
+
+        <button class="create-btn" onclick="openEditor()">
+          + Create style
+        </button>
+
+      </div>
+
+
+      <!-- =========================
+           BEFORE / AFTER DEMO
+      ========================= -->
+
+      <section class="demo">
+
+        <div class="demo-header">
+
+          <div class="demo-title">
+            One thought. Different voices.
+          </div>
+
+          <div class="demo-key">
+            Hold Fn + speak
+          </div>
+
+        </div>
+
+        <div class="demo-grid">
+
+          <div class="demo-box">
+
+            <div class="demo-label">
+              You say
+            </div>
+
+            <div class="demo-text">
+              hey maya the launch review moved to three tomorrow
+              please send the final numbers by noon
+            </div>
+
+          </div>
+
+
+          <div class="demo-box output">
+
+            <div class="demo-label">
+              Kivi writes
+            </div>
+
+            <div class="demo-text">
+              <strong>Hi Maya,</strong><br /><br />
+
+              The launch review has been moved to 3 PM tomorrow.
+              Could you please send the final numbers by noon?
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           VOICE STYLES
+      ========================= -->
+
+      <div class="section-title">
+
+        <h2>Your styles</h2>
+
+        <span>
+          Apps use a default style. Change it anytime.
+        </span>
+
+      </div>
+
+
+      <section class="voices">
+
+        <!-- WORK -->
+
+        <div class="voice-card selected">
+
+          <div class="voice-icon">
+            W
+          </div>
+
+          <h3>Work</h3>
+
+          <p>
+            Clear, direct and ready for professional conversations.
+          </p>
+
+          <div class="app-tags">
+            <span class="app-tag">Gmail</span>
+            <span class="app-tag">Slack</span>
+          </div>
+
+        </div>
+
+
+        <!-- FRIENDS -->
+
+        <div class="voice-card">
+
+          <div class="voice-icon">
+            F
+          </div>
+
+          <h3>Friends</h3>
+
+          <p>
+            Natural, easy and unmistakably you.
+          </p>
+
+          <div class="app-tags">
+            <span class="app-tag">WhatsApp</span>
+            <span class="app-tag">Messages</span>
+          </div>
+
+        </div>
+
+
+        <!-- CODING -->
+
+        <div class="voice-card">
+
+          <div class="voice-icon">
+            &lt;/&gt;
+          </div>
+
+          <h3>Coding</h3>
+
+          <p>
+            Keep technical terms exact. No corporate fluff.
+          </p>
+
+          <div class="app-tags">
+            <span class="app-tag">Cursor</span>
+            <span class="app-tag">Terminal</span>
+          </div>
+
+        </div>
+
+
+        <!-- ADD -->
+
+        <div class="voice-card add-card" onclick="openEditor()">
+
+          <div class="plus">
+            +
+          </div>
+
+          <strong>Create your own</strong>
+
+          <p>
+            Give Kivi a voice that fits your workflow.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           EDITOR
+      ========================= -->
+
+      <section class="editor" id="editor">
+
+        <div class="editor-header">
+
+          <h2>Create a style</h2>
+
+          <button
+            class="close-btn"
+            onclick="closeEditor()"
+          >
+            ×
+          </button>
+
+        </div>
+
+
+        <div class="form-grid">
+
+          <!-- NAME -->
+
+          <div class="form-group">
+
+            <label class="form-label">
+              Style name
+            </label>
+
+            <input
+              id="styleName"
+              class="style-name-input"
+              type="text"
+              placeholder="e.g. Work, Friends, College"
+              value="Work"
+              oninput="updatePreview()"
+            />
+
+          </div>
+
+
+          <!-- APPS -->
+
+          <div class="form-group">
+
+            <label class="form-label">
+              Where should Kivi use it?
+            </label>
+
+            <div class="app-options">
+
+              <button
+                class="app-option selected"
+                onclick="toggleApp(this)"
+              >
+                Gmail
+              </button>
+
+              <button
+                class="app-option"
+                onclick="toggleApp(this)"
+              >
+                WhatsApp
+              </button>
+
+              <button
+                class="app-option"
+                onclick="toggleApp(this)"
+              >
+                Slack
+              </button>
+
+              <button
+                class="app-option"
+                onclick="toggleApp(this)"
+              >
+                Messages
+              </button>
+
+              <button
+                class="app-option"
+                onclick="toggleApp(this)"
+              >
+                Cursor
+              </button>
+
+              <button
+                class="app-option"
+                onclick="toggleApp(this)"
+              >
+                Notes
+              </button>
+
+            </div>
+
+            <div class="hint">
+              This becomes the default style for these apps.
+            </div>
+
+          </div>
+
+
+          <!-- TONE -->
+
+          <div class="form-group">
+
+            <label class="form-label">
+              How should it sound?
+            </label>
+
+            <div class="tone-options">
+
+              <div
+                class="tone selected"
+                onclick="selectTone(this, 'Professional')"
+              >
+
+                <div class="tone-name">
+                  Professional
+                </div>
+
+                <div class="tone-desc">
+                  Conventional and to the point.
+                </div>
+
+              </div>
+
+
+              <div
+                class="tone"
+                onclick="selectTone(this, 'Friendly')"
+              >
+
+                <div class="tone-name">
+                  Friendly
+                </div>
+
+                <div class="tone-desc">
+                  Warm without being too casual.
+                </div>
+
+              </div>
+
+
+              <div
+                class="tone"
+                onclick="selectTone(this, 'Casual')"
+              >
+
+                <div class="tone-name">
+                  Casual
+                </div>
+
+                <div class="tone-desc">
+                  Natural, relaxed and conversational.
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- CUSTOM INSTRUCTIONS -->
+
+          <div class="form-group">
+
+            <label class="form-label">
+              Your instructions
+            </label>
+
+            <textarea
+              id="instructions"
+              placeholder="Tell Kivi what to preserve, remove or change for this voice..."
+              oninput="updatePreview()"
+            >Keep my messages clear and concise. Don't use complicated words.</textarea>
+
+            <div class="hint">
+              Try: "Keep my Hinglish", "Use short sentences",
+              "Don't add emojis", "Always use bullet points."
+            </div>
+
+          </div>
+
+
+          <!-- FULL WIDTH PREVIEW -->
+
+          <div class="form-group full">
+
+            <label class="form-label">
+              Preview
+            </label>
+
+            <div class="preview">
+
+              <div class="preview-label">
+                You say
+              </div>
+
+              <div class="preview-input">
+                hey anika the meeting moved to tomorrow at five
+                can you send me the numbers before then
+              </div>
+
+              <div class="preview-label">
+                Kivi writes
+              </div>
+
+              <div
+                class="preview-output"
+                id="previewOutput"
+              >
+                Hi Anika,<br /><br />
+
+                The meeting has been moved to tomorrow at 5 PM.
+                Could you please send me the numbers before then?
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- =========================
+             CONTEXT OVERRIDE
+        ========================= -->
+
+        <div class="context-box">
+
+          <div class="context-title">
+            Need a different voice sometimes?
+          </div>
+
+          <div class="context-text">
+            Apps set the default. You can still change the voice
+            for one message whenever the situation changes.
+          </div>
+
+          <div class="context-example">
+
+            <div class="context-pill">
+              WhatsApp
+            </div>
+
+            <div class="arrow">
+              →
+            </div>
+
+            <div class="context-pill">
+              Friends
+            </div>
+
+            <div class="arrow">
+              or
+            </div>
+
+            <div class="context-pill">
+              Use Work for this message
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="editor-actions">
+
+          <button
+            class="secondary-btn"
+            onclick="closeEditor()"
+          >
+            Cancel
+          </button>
+
+          <button
+            class="save-btn"
+            onclick="saveStyle()"
+          >
+            Save style
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           HOW IT WORKS
+      ========================= -->
+
+      <div class="section-title">
+
+        <h2>How Styles work</h2>
+
+        <span>
+          Set it once. Speak naturally.
+        </span>
+
+      </div>
+
+
+      <section class="voices">
+
+        <div class="voice-card">
+
+          <div class="voice-icon">
+            1
+          </div>
+
+          <h3>Choose a style</h3>
+
+          <p>
+            friends, coding or something else.
+          </p>
+
+        </div>
+
+
+        <div class="voice-card">
+
+          <div class="voice-icon">
+            2
+          </div>
+
+          <h3>Choose your apps</h3>
+
+          <p>
+            Give each app a default style that fits how
+            you normally use it.
+          </p>
+
+        </div>
+
+
+        <div class="voice-card">
+
+          <div class="voice-icon">
+            3
+          </div>
+
+          <h3>Speak naturally</h3>
+
+          <p>
+            Don't think about punctuation, formatting or
+            perfect wording.
+          </p>
+
+        </div>
+
+
+        <div class="voice-card">
+
+          <div class="voice-icon">
+            4
+          </div>
+
+          <h3>Override when needed</h3>
+
+          <p>
+            Change the style for one message when the
+            context is different.
+          </p>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- =========================
+       TOAST
+  ========================= -->
+
+  <div
+    class="toast"
+    id="toast"
+  >
+    Style saved.
+  </div>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /* =========================
+       OPEN EDITOR
+    ========================= */
+
+    function openEditor() {
+
+      const editor = document.getElementById("editor");
+
+      editor.classList.add("show");
+
+      setTimeout(() => {
+        editor.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 50);
+
+    }
+
+
+    /* =========================
+       CLOSE EDITOR
+    ========================= */
+
+    function closeEditor() {
+
+      const editor = document.getElementById("editor");
+
+      editor.classList.remove("show");
+
+    }
+
+
+    /* =========================
+       APP SELECTION
+    ========================= */
+
+    function toggleApp(button) {
+
+      button.classList.toggle("selected");
+
+    }
+
+
+    /* =========================
+       TONE SELECTION
+    ========================= */
+
+    let selectedTone = "Professional";
+
+    function selectTone(element, tone) {
+
+      document
+        .querySelectorAll(".tone")
+        .forEach(item => {
+          item.classList.remove("selected");
+        });
+
+      element.classList.add("selected");
+
+      selectedTone = tone;
+
+      updatePreview();
+
+    }
+
+
+    /* =========================
+       UPDATE PREVIEW
+    ========================= */
+
+    function updatePreview() {
+
+      const name =
+        document.getElementById("styleName").value;
+
+      const instructions =
+        document.getElementById("instructions").value;
+
+      const output =
+        document.getElementById("previewOutput");
+
+
+      if (selectedTone === "Casual") {
+
+        output.innerHTML =
+          "hey Anika!<br><br>" +
+          "The meeting moved to tomorrow at 5. " +
+          "Can you send me the numbers before then?";
+
+      }
+
+      else if (selectedTone === "Friendly") {
+
+        output.innerHTML =
+          "Hi Anika,<br><br>" +
+          "Just a quick update — the meeting has moved " +
+          "to tomorrow at 5 PM. Could you please send " +
+          "me the numbers before then?<br><br>" +
+          "Thanks!";
+
+      }
+
+      else {
+
+        output.innerHTML =
+          "Hi Anika,<br><br>" +
+          "The meeting has been moved to tomorrow at 5 PM. " +
+          "Could you please send me the numbers before then?";
+
+      }
+
+    }
+
+
+    /* =========================
+       SAVE STYLE
+    ========================= */
+
+    function saveStyle() {
+
+      const styleName =
+        document.getElementById("styleName").value.trim();
+
+
+      if (!styleName) {
+
+        alert("Please give your style a name.");
+
+        return;
+
+      }
+
+
+      const selectedApps =
+        Array.from(
+          document.querySelectorAll(".app-option.selected")
+        )
+        .map(app => app.textContent.trim());
+
+
+      const instructions =
+        document.getElementById("instructions").value;
+
+
+      console.log({
+        styleName,
+        selectedApps,
+        selectedTone,
+        instructions
+      });
+
+
+      showToast(
+        `"${styleName}" style saved`
+      );
+
+
+      closeEditor();
+
+    }
+
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    function showToast(message) {
+
+      const toast =
+        document.getElementById("toast");
+
+      toast.textContent = message;
+
+      toast.classList.add("show");
+
+
+      setTimeout(() => {
+
+        toast.classList.remove("show");
+
+      }, 2500);
+
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    document
+      .querySelectorAll(".nav-item")
+      .forEach(item => {
+
+        item.addEventListener("click", () => {
+
+          document
+            .querySelectorAll(".nav-item")
+            .forEach(nav => {
+              nav.classList.remove("active");
+            });
+
+          item.classList.add("active");
+
+        });
+
+      });
+
+  </script>
+
+</body>
+</html>
