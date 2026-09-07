@@ -1,2 +1,2 @@
 Below is the link for prototype:
-(https://kivistyles.vercel.app/)
+(https://aarohivanjare.github.io/kivi/)
