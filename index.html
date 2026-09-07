@@ -31,19 +31,11 @@
       cursor: pointer;
     }
 
-    /* =========================
-       LAYOUT
-    ========================= */
-
     .app {
       display: flex;
       min-height: 100vh;
       background: #dff3e1;
     }
-
-    /* =========================
-       SIDEBAR
-    ========================= */
 
     .sidebar {
       width: 235px;
@@ -111,10 +103,6 @@
       line-height: 1.5;
     }
 
-    /* =========================
-       MAIN
-    ========================= */
-
     .main {
       flex: 1;
       padding: 42px 55px 70px;
@@ -168,10 +156,6 @@
       background: #1f6b3a;
       transform: translateY(-1px);
     }
-
-    /* =========================
-       BLACK DEMO
-    ========================= */
 
     .demo {
       background: #111111;
@@ -244,10 +228,6 @@
       color: #75c985;
     }
 
-    /* =========================
-       SECTION
-    ========================= */
-
     .section-title {
       display: flex;
       align-items: center;
@@ -265,10 +245,6 @@
       color: #487054;
     }
 
-    /* =========================
-       VOICE CARDS
-    ========================= */
-
     .voices {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -284,6 +260,7 @@
       min-height: 170px;
       position: relative;
       transition: 0.2s ease;
+      cursor: pointer;
     }
 
     .voice-card:hover {
@@ -359,10 +336,6 @@
       color: #1f6b3a;
     }
 
-    /* =========================
-       EDITOR
-    ========================= */
-
     .editor {
       background: #c5e8ca;
       border: 1px solid #a8d8b0;
@@ -435,10 +408,6 @@
       box-shadow: 0 0 0 3px rgba(31, 107, 58, 0.1);
     }
 
-    /* =========================
-       APP SELECTOR
-    ========================= */
-
     .app-options {
       display: flex;
       flex-wrap: wrap;
@@ -464,10 +433,6 @@
       color: white;
       border-color: #1f6b3a;
     }
-
-    /* =========================
-       TONES
-    ========================= */
 
     .tone-options {
       display: grid;
@@ -505,10 +470,6 @@
       line-height: 1.4;
     }
 
-    /* =========================
-       TEXTAREA
-    ========================= */
-
     textarea {
       width: 100%;
       min-height: 105px;
@@ -533,10 +494,6 @@
       font-size: 11px;
       margin-top: 7px;
     }
-
-    /* =========================
-       PREVIEW
-    ========================= */
 
     .preview {
       background: #111111;
@@ -568,10 +525,6 @@
       font-size: 13px;
       line-height: 1.5;
     }
-
-    /* =========================
-       BUTTONS
-    ========================= */
 
     .editor-actions {
       display: flex;
@@ -607,10 +560,6 @@
     .save-btn:hover {
       background: #15552d;
     }
-
-    /* =========================
-       CONTEXT OVERRIDE
-    ========================= */
 
     .context-box {
       margin-top: 25px;
@@ -654,10 +603,6 @@
       font-weight: 800;
     }
 
-    /* =========================
-       TOAST
-    ========================= */
-
     .toast {
       position: fixed;
       right: 25px;
@@ -678,10 +623,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
 
     @media (max-width: 1100px) {
       .voices {
@@ -758,10 +699,6 @@
 
   <div class="app">
 
-    <!-- =========================
-         SIDEBAR
-    ========================= -->
-
     <aside class="sidebar">
 
       <div class="logo">kivi.</div>
@@ -800,14 +737,7 @@
 
     </aside>
 
-
-    <!-- =========================
-         MAIN
-    ========================= -->
-
     <main class="main">
-
-      <!-- HEADER -->
 
       <div class="top-row">
 
@@ -822,16 +752,11 @@
           </p>
         </div>
 
-        <button class="create-btn" onclick="openEditor()">
+        <button class="create-btn" onclick="createNewStyle()">
           + Create style
         </button>
 
       </div>
-
-
-      <!-- =========================
-           BEFORE / AFTER DEMO
-      ========================= -->
 
       <section class="demo">
 
@@ -862,7 +787,6 @@
 
           </div>
 
-
           <div class="demo-box output">
 
             <div class="demo-label">
@@ -882,37 +806,28 @@
 
       </section>
 
-
-      <!-- =========================
-           VOICE STYLES
-      ========================= -->
-
       <div class="section-title">
 
         <h2>Your styles</h2>
 
         <span>
-          Apps use a default style. Change it anytime.
+          Click a style to see its apps and instructions. Apps use a default style — change it anytime.
         </span>
 
       </div>
 
-
-      <section class="voices">
+      <!-- id added so the script can target this grid specifically, since
+           "voices" is reused below for the unrelated "How Styles work" section -->
+      <section class="voices" id="stylesGrid">
 
         <!-- WORK -->
+        <div class="voice-card selected" data-style="work" onclick="editStyle('work')">
 
-        <div class="voice-card selected">
-
-          <div class="voice-icon">
-            W
-          </div>
+          <div class="voice-icon">W</div>
 
           <h3>Work</h3>
 
-          <p>
-            Clear, direct and ready for professional conversations.
-          </p>
+          <p>Clear, direct and ready for professional conversations.</p>
 
           <div class="app-tags">
             <span class="app-tag">Gmail</span>
@@ -921,20 +836,14 @@
 
         </div>
 
-
         <!-- FRIENDS -->
+        <div class="voice-card" data-style="friends" onclick="editStyle('friends')">
 
-        <div class="voice-card">
-
-          <div class="voice-icon">
-            F
-          </div>
+          <div class="voice-icon">F</div>
 
           <h3>Friends</h3>
 
-          <p>
-            Natural, easy and unmistakably you.
-          </p>
+          <p>Natural, easy and unmistakably you.</p>
 
           <div class="app-tags">
             <span class="app-tag">WhatsApp</span>
@@ -943,20 +852,14 @@
 
         </div>
 
-
         <!-- CODING -->
+        <div class="voice-card" data-style="coding" onclick="editStyle('coding')">
 
-        <div class="voice-card">
-
-          <div class="voice-icon">
-            &lt;/&gt;
-          </div>
+          <div class="voice-icon">&lt;/&gt;</div>
 
           <h3>Coding</h3>
 
-          <p>
-            Keep technical terms exact. No corporate fluff.
-          </p>
+          <p>Keep technical terms exact. No corporate fluff.</p>
 
           <div class="app-tags">
             <span class="app-tag">Cursor</span>
@@ -965,204 +868,97 @@
 
         </div>
 
-
         <!-- ADD -->
+        <div class="voice-card add-card" onclick="createNewStyle()">
 
-        <div class="voice-card add-card" onclick="openEditor()">
-
-          <div class="plus">
-            +
-          </div>
+          <div class="plus">+</div>
 
           <strong>Create your own</strong>
 
-          <p>
-            Give Kivi a voice that fits your workflow.
-          </p>
+          <p>Give Kivi a voice that fits your workflow.</p>
 
         </div>
 
       </section>
 
-
-      <!-- =========================
-           EDITOR
-      ========================= -->
-
       <section class="editor" id="editor">
 
         <div class="editor-header">
 
-          <h2>Create a style</h2>
+          <h2 id="editorTitle">Create a style</h2>
 
-          <button
-            class="close-btn"
-            onclick="closeEditor()"
-          >
-            ×
-          </button>
+          <button class="close-btn" onclick="closeEditor()">×</button>
 
         </div>
 
-
         <div class="form-grid">
-
-          <!-- NAME -->
 
           <div class="form-group">
 
-            <label class="form-label">
-              Style name
-            </label>
+            <label class="form-label">Style name</label>
 
             <input
               id="styleName"
               class="style-name-input"
               type="text"
               placeholder="e.g. Work, Friends, College"
-              value="Work"
               oninput="updatePreview()"
             />
 
           </div>
 
-
-          <!-- APPS -->
-
           <div class="form-group">
 
-            <label class="form-label">
-              Where should Kivi use it?
-            </label>
+            <label class="form-label">Where should Kivi use it?</label>
 
             <div class="app-options">
-
-              <button
-                class="app-option selected"
-                onclick="toggleApp(this)"
-              >
-                Gmail
-              </button>
-
-              <button
-                class="app-option"
-                onclick="toggleApp(this)"
-              >
-                WhatsApp
-              </button>
-
-              <button
-                class="app-option"
-                onclick="toggleApp(this)"
-              >
-                Slack
-              </button>
-
-              <button
-                class="app-option"
-                onclick="toggleApp(this)"
-              >
-                Messages
-              </button>
-
-              <button
-                class="app-option"
-                onclick="toggleApp(this)"
-              >
-                Cursor
-              </button>
-
-              <button
-                class="app-option"
-                onclick="toggleApp(this)"
-              >
-                Notes
-              </button>
-
+              <button class="app-option" onclick="toggleApp(this)">Gmail</button>
+              <button class="app-option" onclick="toggleApp(this)">WhatsApp</button>
+              <button class="app-option" onclick="toggleApp(this)">Slack</button>
+              <button class="app-option" onclick="toggleApp(this)">Messages</button>
+              <button class="app-option" onclick="toggleApp(this)">Cursor</button>
+              <button class="app-option" onclick="toggleApp(this)">Terminal</button>
+              <button class="app-option" onclick="toggleApp(this)">Notes</button>
             </div>
 
-            <div class="hint">
-              This becomes the default style for these apps.
-            </div>
+            <div class="hint">This becomes the default style for these apps.</div>
 
           </div>
 
-
-          <!-- TONE -->
-
           <div class="form-group">
 
-            <label class="form-label">
-              How should it sound?
-            </label>
+            <label class="form-label">How should it sound?</label>
 
             <div class="tone-options">
 
-              <div
-                class="tone selected"
-                onclick="selectTone(this, 'Professional')"
-              >
-
-                <div class="tone-name">
-                  Professional
-                </div>
-
-                <div class="tone-desc">
-                  Conventional and to the point.
-                </div>
-
+              <div class="tone" onclick="selectTone(this, 'Professional')">
+                <div class="tone-name">Professional</div>
+                <div class="tone-desc">Conventional and to the point.</div>
               </div>
 
-
-              <div
-                class="tone"
-                onclick="selectTone(this, 'Friendly')"
-              >
-
-                <div class="tone-name">
-                  Friendly
-                </div>
-
-                <div class="tone-desc">
-                  Warm without being too casual.
-                </div>
-
+              <div class="tone" onclick="selectTone(this, 'Friendly')">
+                <div class="tone-name">Friendly</div>
+                <div class="tone-desc">Warm without being too casual.</div>
               </div>
 
-
-              <div
-                class="tone"
-                onclick="selectTone(this, 'Casual')"
-              >
-
-                <div class="tone-name">
-                  Casual
-                </div>
-
-                <div class="tone-desc">
-                  Natural, relaxed and conversational.
-                </div>
-
+              <div class="tone" onclick="selectTone(this, 'Casual')">
+                <div class="tone-name">Casual</div>
+                <div class="tone-desc">Natural, relaxed and conversational.</div>
               </div>
 
             </div>
 
           </div>
 
-
-          <!-- CUSTOM INSTRUCTIONS -->
-
           <div class="form-group">
 
-            <label class="form-label">
-              Your instructions
-            </label>
+            <label class="form-label">Your instructions</label>
 
             <textarea
               id="instructions"
               placeholder="Tell Kivi what to preserve, remove or change for this voice..."
               oninput="updatePreview()"
-            >Keep my messages clear and concise. Don't use complicated words.</textarea>
+            ></textarea>
 
             <div class="hint">
               Try: "Keep my Hinglish", "Use short sentences",
@@ -1171,36 +967,23 @@
 
           </div>
 
-
-          <!-- FULL WIDTH PREVIEW -->
-
           <div class="form-group full">
 
-            <label class="form-label">
-              Preview
-            </label>
+            <label class="form-label">Preview</label>
 
             <div class="preview">
 
-              <div class="preview-label">
-                You say
-              </div>
+              <div class="preview-label">You say</div>
 
-              <div class="preview-input">
+              <div class="preview-input" id="previewInput">
                 hey anika the meeting moved to tomorrow at five
                 can you send me the numbers before then
               </div>
 
-              <div class="preview-label">
-                Kivi writes
-              </div>
+              <div class="preview-label">Kivi writes</div>
 
-              <div
-                class="preview-output"
-                id="previewOutput"
-              >
+              <div class="preview-output" id="previewOutput">
                 Hi Anika,<br /><br />
-
                 The meeting has been moved to tomorrow at 5 PM.
                 Could you please send me the numbers before then?
               </div>
@@ -1211,16 +994,9 @@
 
         </div>
 
-
-        <!-- =========================
-             CONTEXT OVERRIDE
-        ========================= -->
-
         <div class="context-box">
 
-          <div class="context-title">
-            Need a different voice sometimes?
-          </div>
+          <div class="context-title">Need a different voice sometimes?</div>
 
           <div class="context-text">
             Apps set the default. You can still change the voice
@@ -1228,132 +1004,51 @@
           </div>
 
           <div class="context-example">
-
-            <div class="context-pill">
-              WhatsApp
-            </div>
-
-            <div class="arrow">
-              →
-            </div>
-
-            <div class="context-pill">
-              Friends
-            </div>
-
-            <div class="arrow">
-              or
-            </div>
-
-            <div class="context-pill">
-              Use Work for this message
-            </div>
-
+            <div class="context-pill">WhatsApp</div>
+            <div class="arrow">→</div>
+            <div class="context-pill">Friends</div>
+            <div class="arrow">or</div>
+            <div class="context-pill">Use Work for this message</div>
           </div>
 
         </div>
 
-
-        <!-- ACTIONS -->
-
         <div class="editor-actions">
-
-          <button
-            class="secondary-btn"
-            onclick="closeEditor()"
-          >
-            Cancel
-          </button>
-
-          <button
-            class="save-btn"
-            onclick="saveStyle()"
-          >
-            Save style
-          </button>
-
+          <button class="secondary-btn" onclick="closeEditor()">Cancel</button>
+          <button class="save-btn" onclick="saveStyle()">Save style</button>
         </div>
 
       </section>
 
-
-      <!-- =========================
-           HOW IT WORKS
-      ========================= -->
-
       <div class="section-title">
-
         <h2>How Styles work</h2>
-
-        <span>
-          Set it once. Speak naturally.
-        </span>
-
+        <span>Set it once. Speak naturally.</span>
       </div>
-
 
       <section class="voices">
 
         <div class="voice-card">
-
-          <div class="voice-icon">
-            1
-          </div>
-
+          <div class="voice-icon">1</div>
           <h3>Choose a style</h3>
-
-          <p>
-            friends, coding or something else.
-          </p>
-
+          <p>friends, coding or something else.</p>
         </div>
 
-
         <div class="voice-card">
-
-          <div class="voice-icon">
-            2
-          </div>
-
+          <div class="voice-icon">2</div>
           <h3>Choose your apps</h3>
-
-          <p>
-            Give each app a default style that fits how
-            you normally use it.
-          </p>
-
+          <p>Give each app a default style that fits how you normally use it.</p>
         </div>
 
-
         <div class="voice-card">
-
-          <div class="voice-icon">
-            3
-          </div>
-
+          <div class="voice-icon">3</div>
           <h3>Speak naturally</h3>
-
-          <p>
-            Don't think about punctuation, formatting or
-            perfect wording.
-          </p>
-
+          <p>Don't think about punctuation, formatting or perfect wording.</p>
         </div>
 
-
         <div class="voice-card">
-
-          <div class="voice-icon">
-            4
-          </div>
-
+          <div class="voice-icon">4</div>
           <h3>Override when needed</h3>
-
-          <p>
-            Change the style for one message when the
-            context is different.
-          </p>
-
+          <p>Change the style for one message when the context is different.</p>
         </div>
 
       </section>
@@ -1362,232 +1057,264 @@
 
   </div>
 
-
-  <!-- =========================
-       TOAST
-  ========================= -->
-
-  <div
-    class="toast"
-    id="toast"
-  >
-    Style saved.
-  </div>
-
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
+  <div class="toast" id="toast">Style saved.</div>
 
   <script>
 
     /* =========================
-       OPEN EDITOR
+       STYLE DATA
+       — every card's real state lives here now, instead of being
+         hardcoded once into the editor's HTML.
     ========================= */
 
-    function openEditor() {
+    const styles = {
+      work: {
+        name: "Work",
+        icon: "W",
+        desc: "Clear, direct and ready for professional conversations.",
+        apps: ["Gmail", "Slack"],
+        tone: "Professional",
+        instructions: "Keep my messages clear and concise. Don't use complicated words.",
+        example: "hey maya the launch review moved to three tomorrow please send the final numbers by noon"
+      },
+      friends: {
+        name: "Friends",
+        icon: "F",
+        desc: "Natural, easy and unmistakably you.",
+        apps: ["WhatsApp", "Messages"],
+        tone: "Casual",
+        instructions: "Keep it natural — light cleanup only. Don't translate Hindi words to English.",
+        example: "yaar kal milte hain na, wahi cafe wala plan"
+      },
+      coding: {
+        name: "Coding",
+        icon: "</>",
+        desc: "Keep technical terms exact. No corporate fluff.",
+        apps: ["Cursor", "Terminal"],
+        tone: "Professional",
+        instructions: "Keep technical terms exact. No corporate fluff. Don't translate variable or function names.",
+        example: "ye function null return kar raha hai jab tak error na ho"
+      }
+    };
 
-      const editor = document.getElementById("editor");
+    // tone-specific written output, per style — this is what actually
+    // makes each style's preview feel like that style, not a copy of Work's.
+    const outputTable = {
+      work: {
+        Professional: "Hi Maya,<br><br>The launch review has been moved to 3 PM tomorrow. Could you please send the final numbers by noon?",
+        Friendly: "Hi Maya,<br><br>Just a heads up — the launch review moved to 3 PM tomorrow. Could you send the final numbers by noon? Thanks!",
+        Casual: "hey Maya! launch review moved to 3 tomorrow — can you send the final numbers by noon?"
+      },
+      friends: {
+        Casual: "yaar kal milte hain, wahi cafe wala plan ✓",
+        Friendly: "hey, let's meet tomorrow — same café plan as always 😊",
+        Professional: "Confirming our plan to meet tomorrow at the usual café."
+      },
+      coding: {
+        Professional: "// Returns null unless an error occurs.",
+        Friendly: "// returns null unless there's an error",
+        Casual: "// null unless error"
+      },
+      _new: {
+        Professional: "Hi Anika,<br><br>The meeting has been moved to tomorrow at 5 PM. Could you please send me the numbers before then?",
+        Friendly: "Hi Anika,<br><br>Just a quick update — the meeting has moved to tomorrow at 5 PM. Could you please send me the numbers before then?<br><br>Thanks!",
+        Casual: "hey Anika!<br><br>The meeting moved to tomorrow at 5. Can you send me the numbers before then?"
+      }
+    };
 
-      editor.classList.add("show");
-
-      setTimeout(() => {
-        editor.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }, 50);
-
-    }
-
-
-    /* =========================
-       CLOSE EDITOR
-    ========================= */
-
-    function closeEditor() {
-
-      const editor = document.getElementById("editor");
-
-      editor.classList.remove("show");
-
-    }
-
-
-    /* =========================
-       APP SELECTION
-    ========================= */
-
-    function toggleApp(button) {
-
-      button.classList.toggle("selected");
-
-    }
-
-
-    /* =========================
-       TONE SELECTION
-    ========================= */
-
+    let currentStyleId = null; // null = creating a new style
+    let currentExample = "";
     let selectedTone = "Professional";
 
-    function selectTone(element, tone) {
+    /* =========================
+       OPEN EDITOR FOR AN EXISTING STYLE
+    ========================= */
 
-      document
-        .querySelectorAll(".tone")
-        .forEach(item => {
-          item.classList.remove("selected");
-        });
+    function editStyle(id) {
+      const style = styles[id];
+      if (!style) return;
 
-      element.classList.add("selected");
+      currentStyleId = id;
+      currentExample = style.example;
 
-      selectedTone = tone;
+      document.getElementById('editorTitle').textContent = 'Edit "' + style.name + '"';
+      document.getElementById('styleName').value = style.name;
+
+      document.querySelectorAll('.app-option').forEach(btn => {
+        btn.classList.toggle('selected', style.apps.includes(btn.textContent.trim()));
+      });
+
+      document.querySelectorAll('.tone').forEach(t => t.classList.remove('selected'));
+      const toneEl = Array.from(document.querySelectorAll('.tone'))
+        .find(t => t.querySelector('.tone-name').textContent.trim() === style.tone);
+      if (toneEl) toneEl.classList.add('selected');
+      selectedTone = style.tone;
+
+      document.getElementById('instructions').value = style.instructions;
+
+      document.querySelectorAll('.voice-card[data-style]').forEach(c => c.classList.remove('selected'));
+      const card = document.querySelector('[data-style="' + id + '"]');
+      if (card) card.classList.add('selected');
 
       updatePreview();
-
+      openEditor();
     }
 
+    /* =========================
+       OPEN EDITOR FOR A BRAND NEW STYLE
+    ========================= */
+
+    function createNewStyle() {
+      currentStyleId = null;
+      currentExample = "hey anika the meeting moved to tomorrow at five can you send me the numbers before then";
+      selectedTone = "Professional";
+
+      document.getElementById('editorTitle').textContent = 'Create a style';
+      document.getElementById('styleName').value = '';
+      document.querySelectorAll('.app-option').forEach(btn => btn.classList.remove('selected'));
+      document.querySelectorAll('.tone').forEach(t => t.classList.remove('selected'));
+      document.querySelector('.tone').classList.add('selected');
+      document.getElementById('instructions').value = '';
+
+      updatePreview();
+      openEditor();
+    }
+
+    function openEditor() {
+      const editor = document.getElementById("editor");
+      editor.classList.add("show");
+      setTimeout(() => {
+        editor.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 50);
+    }
+
+    function closeEditor() {
+      document.getElementById("editor").classList.remove("show");
+    }
+
+    function toggleApp(button) {
+      button.classList.toggle("selected");
+    }
+
+    function selectTone(element, tone) {
+      document.querySelectorAll(".tone").forEach(item => item.classList.remove("selected"));
+      element.classList.add("selected");
+      selectedTone = tone;
+      updatePreview();
+    }
 
     /* =========================
        UPDATE PREVIEW
+       — now uses the example + output table for whichever style is
+         currently open, instead of one fixed example for everyone.
     ========================= */
 
     function updatePreview() {
+      const inputEl = document.getElementById('previewInput');
+      const outputEl = document.getElementById('previewOutput');
 
-      const name =
-        document.getElementById("styleName").value;
+      inputEl.textContent = currentExample;
 
-      const instructions =
-        document.getElementById("instructions").value;
-
-      const output =
-        document.getElementById("previewOutput");
-
-
-      if (selectedTone === "Casual") {
-
-        output.innerHTML =
-          "hey Anika!<br><br>" +
-          "The meeting moved to tomorrow at 5. " +
-          "Can you send me the numbers before then?";
-
-      }
-
-      else if (selectedTone === "Friendly") {
-
-        output.innerHTML =
-          "Hi Anika,<br><br>" +
-          "Just a quick update — the meeting has moved " +
-          "to tomorrow at 5 PM. Could you please send " +
-          "me the numbers before then?<br><br>" +
-          "Thanks!";
-
-      }
-
-      else {
-
-        output.innerHTML =
-          "Hi Anika,<br><br>" +
-          "The meeting has been moved to tomorrow at 5 PM. " +
-          "Could you please send me the numbers before then?";
-
-      }
-
+      const table = outputTable[currentStyleId] || outputTable._new;
+      outputEl.innerHTML = table[selectedTone] || table.Professional;
     }
-
 
     /* =========================
        SAVE STYLE
+       — writes back into `styles`, and updates the actual card on
+         screen, instead of just logging to console and closing.
     ========================= */
 
     function saveStyle() {
-
-      const styleName =
-        document.getElementById("styleName").value.trim();
-
-
+      const styleName = document.getElementById("styleName").value.trim();
       if (!styleName) {
-
         alert("Please give your style a name.");
-
         return;
-
       }
 
-
-      const selectedApps =
-        Array.from(
-          document.querySelectorAll(".app-option.selected")
-        )
+      const selectedApps = Array.from(document.querySelectorAll(".app-option.selected"))
         .map(app => app.textContent.trim());
+      const instructions = document.getElementById("instructions").value;
 
+      if (currentStyleId && styles[currentStyleId]) {
+        // editing an existing style
+        const style = styles[currentStyleId];
+        style.name = styleName;
+        style.apps = selectedApps;
+        style.tone = selectedTone;
+        style.instructions = instructions;
+        updateCardUI(currentStyleId);
+      } else {
+        // creating a new one
+        const newId = "style_" + Date.now();
+        styles[newId] = {
+          name: styleName,
+          icon: styleName.charAt(0).toUpperCase(),
+          desc: instructions ? instructions.slice(0, 70) : "Custom style.",
+          apps: selectedApps,
+          tone: selectedTone,
+          instructions: instructions,
+          example: currentExample
+        };
+        outputTable[newId] = { [selectedTone]: document.getElementById('previewOutput').innerHTML };
+        addNewCard(newId);
+        currentStyleId = newId;
+      }
 
-      const instructions =
-        document.getElementById("instructions").value;
-
-
-      console.log({
-        styleName,
-        selectedApps,
-        selectedTone,
-        instructions
-      });
-
-
-      showToast(
-        `"${styleName}" style saved`
-      );
-
-
+      showToast('"' + styleName + '" style saved');
       closeEditor();
-
     }
 
+    /* =========================
+       REFLECT AN EDIT BACK ONTO ITS CARD
+    ========================= */
+
+    function updateCardUI(id) {
+      const style = styles[id];
+      const card = document.querySelector('[data-style="' + id + '"]');
+      if (!card || !style) return;
+
+      card.querySelector('h3').textContent = style.name;
+      card.querySelector('p').textContent = style.desc;
+      const tagsEl = card.querySelector('.app-tags');
+      tagsEl.innerHTML = style.apps.map(a => '<span class="app-tag">' + a + '</span>').join('');
+    }
 
     /* =========================
-       TOAST
+       ADD A CARD FOR A NEWLY CREATED STYLE
     ========================= */
+
+    function addNewCard(id) {
+      const style = styles[id];
+      const grid = document.getElementById('stylesGrid');
+      const addCard = grid.querySelector('.add-card');
+
+      const card = document.createElement('div');
+      card.className = 'voice-card';
+      card.setAttribute('data-style', id);
+      card.setAttribute('onclick', 'editStyle(\'' + id + '\')');
+      card.innerHTML =
+        '<div class="voice-icon">' + style.icon + '</div>' +
+        '<h3>' + style.name + '</h3>' +
+        '<p>' + style.desc + '</p>' +
+        '<div class="app-tags">' + style.apps.map(a => '<span class="app-tag">' + a + '</span>').join('') + '</div>';
+
+      grid.insertBefore(card, addCard);
+    }
 
     function showToast(message) {
-
-      const toast =
-        document.getElementById("toast");
-
+      const toast = document.getElementById("toast");
       toast.textContent = message;
-
       toast.classList.add("show");
-
-
-      setTimeout(() => {
-
-        toast.classList.remove("show");
-
-      }, 2500);
-
+      setTimeout(() => toast.classList.remove("show"), 2500);
     }
 
-
-    /* =========================
-       NAVIGATION
-    ========================= */
-
-    document
-      .querySelectorAll(".nav-item")
-      .forEach(item => {
-
-        item.addEventListener("click", () => {
-
-          document
-            .querySelectorAll(".nav-item")
-            .forEach(nav => {
-              nav.classList.remove("active");
-            });
-
-          item.classList.add("active");
-
-        });
-
+    document.querySelectorAll(".nav-item").forEach(item => {
+      item.addEventListener("click", () => {
+        document.querySelectorAll(".nav-item").forEach(nav => nav.classList.remove("active"));
+        item.classList.add("active");
       });
+    });
 
   </script>
 
